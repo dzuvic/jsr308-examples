@@ -1,0 +1,27 @@
+<div w11k-slide-master="regular">
+  <span w11k-slide-part-source="header">
+    Checker Framework Integration
+  </span>
+
+  <div w11k-slide-part-source="content">
+    <ul class="simple">
+      <li>Wrapper oder -processor
+        <ul class="simple">
+          <li>javacheck: Wrapper für javac</li>
+          <li>javac -processor</li>
+        </ul>
+      </li>
+      <li>javacheck: Für Kommandozeilentools</li>
+      <li>-processor: mvn, gradle, ...
+        <ul>
+          <li><code>-Xbootclasspath/p:${annotatedJdk}</code></li>
+          <li><code>-processingpath checker.jar</code></li>
+          <li>Java 7: <code>-J-Xbootclasspath/p:${typeAnnotationsJavac}</code></li>
+          <li>Weitere Argumente, bspw. Warn modus: <code>-Awarns</code></li>
+        </ul>
+      </li>
+      <li>Automatisches Processing:<br>
+        <code>META-INF/services/javax.annotation.processing.Processor</code></li>
+    </ul>
+  </div>
+</div>

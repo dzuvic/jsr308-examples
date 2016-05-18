@@ -1,0 +1,30 @@
+<div w11k-slide-master="demo">
+  <span w11k-slide-part-source="header">
+    Nullness Checker Einfaches Beispiel
+  </span>
+
+  <div w11k-slide-part-source="content">
+
+    <!--@formatter:off-->
+  <pre w11k-pretty-print lang="java">
+public class NonNullInstance {
+  final @NonNull Object nn;
+  final List&lt;@NonNull String> list = new ArrayList&lt;String>();
+
+  public NonNullInstance(@NonNull Object nn, String ... entries) {
+    this.nn = nn;
+    this.list.addAll(Arrays.asList(entries));
+  }
+}</pre>
+    <!--@formatter:on-->
+    <p>Folgendes compiliert nicht:</p>
+
+    <!--@formatter:off-->
+  <pre w11k-pretty-print lang="java">
+NonNullInstance x = new NonNullInstance(null);
+NonNullInstance y = new NonNullInstance("some", null, null);
+  </pre>
+      <!--@formatter:on-->
+  </div>
+
+</div>

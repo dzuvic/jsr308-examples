@@ -1,0 +1,8 @@
+rootProject.name = 'jsr308-exmaples'
+
+include 'slides'
+include 'no-checks'
+include 'annotations'
+include 'checkers'
+include 'examples'
+

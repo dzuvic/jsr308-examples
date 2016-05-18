@@ -1,0 +1,14 @@
+
+apply plugin: 'java'
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+//    compileOnly "org.checkerframework:${jdkVersion}:${checkerFrameworkVersion}"
+//    compileOnly "org.checkerframework:checker:${checkerFrameworkVersion}"
+    compile project(":annotations")
+    compile "org.checkerframework:checker-qual:${checkerFrameworkVersion}"
+    compileOnly "org.checkerframework:checker:${checkerFrameworkVersion}"
+
+}

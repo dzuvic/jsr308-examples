@@ -1,0 +1,44 @@
+group 'de.w11k.jsr308'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "de.w11k.jsr308.examples.TaintedSample"
+//mainClassName = "de.w11k.jsr308.examples.InterningSample"
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    checkerFrameworkAnnotatedJDK  libraries.checkerFrameworkAnnotatedJDKLib //"org.checkerframework:${jdkVersion}:${checkerFrameworkVersion}" //libraries.checkerFrameworkAnnotatedJDKLib
+    checkerFramework libraries.checkerFrameworkLib //"org.checkerframework:checker:${checkerFrameworkVersion}" //libraries.checkerFrameworkLib
+    checkerFramework project(":checkers")
+
+    compileOnly project(":checkers")
+    compile project(":annotations")
+    compile "com.google.guava:guava:19.0"
+    compile "org.checkerframework:checker-qual:${checkerFrameworkVersion}"
+
+//    compileOnly "org.checkerframework:${jdkVersion}:${checkerFrameworkVersion}"
+//    compileOnly "org.checkerframework:checker:${checkerFrameworkVersion}"
+//    compile "org.checkerframework:checker:${checkerFrameworkVersion}"
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+
+    // different syntax
+//    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+
+    options.compilerArgs += [
+//                '-J-Xdebug -J-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000',
+//                '-processor', 'org.checkerframework.checker.nullness.NullnessChecker,org.checkerframework.checker.units.UnitsChecker',
+//                '-processor', 'org.checkerframework.checker.tainting.TaintingChecker',
+            '-processorpath', "${configurations.checkerFramework.asPath}",
+//            '-Awarns' ,
+            '-Aquals=de.w11k.jsr308.checkers.encrypt.Encrypted,de.w11k.jsr308.checkers.encrypt.PossiblyUnencrypted,de.w11k.jsr308.checkers.encrypt.PolyEncrypted', //,de.w11k.jsr308.checkers.fenum.States,de.w11k.jsr308.checkers.fenum.Level',
+            '-AprintErrorStack',
+            "-Xbootclasspath/p:${configurations.checkerFrameworkAnnotatedJDK.asPath}"
+    ]
+}

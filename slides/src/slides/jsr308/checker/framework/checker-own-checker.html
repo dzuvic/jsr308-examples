@@ -1,0 +1,21 @@
+<div w11k-slide-master="expert">
+  <span w11k-slide-part-source="header">
+    Der Weg zum eigenen Checker (Skizze)
+  </span>
+
+  <div w11k-slide-part-source="content">
+    <ol class="simple">
+      <li>Definition einer Typ-Hierarchie</li>
+      <li>Typ-Regeln: <code>BaseTypeVisitor</code> &rightarrow; Compiler Tree Api</li>
+      <li>Typ-Inferenz: <code>@ImplicitFor</code> Annotation. Beispiel <code>RegexBottom</code><br>
+        <code>@ImplicitFor(literals = {LiteralKind.NULL}..)</code>
+      </li>
+      <li>ggf. DataFlow-Analyse: Subklassen von <br>
+        <code>CFAbstractAnalysis</code> &amp; <code>CFAbstractTransfer</code></li>
+      <li>Implementierung der Compiler Schnittstelle:<br>
+        <code>SourceChecker</code> meist &leftarrow;<code>BaseTypeChecker</code> oder <code>AggregateChecker</code>
+      </li>
+    </ol>
+
+  </div>
+</div>

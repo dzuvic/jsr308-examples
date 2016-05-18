@@ -1,0 +1,28 @@
+<div w11k-slide-master="expert">
+  <span w11k-slide-part-source="header">
+    Interning Checker
+  </span>
+
+  <div w11k-slide-part-source="content">
+    <ul class="simple">
+      <li>Interning &rightarrow; <code>x.equals(y)</code> &equiv; <code>x==y</code>
+        <ul class="simple">
+          <li>Andere Beispiele: Integer; Read-Only Objekte</li>
+          <li>Interning bspw. mit <code>WeakHashMap</code> &rightarrow; Guava Cache</li>
+        </ul>
+      </li>
+    </ul>
+    <!--@formatter:off-->
+<pre w11k-pretty-print lang="java">
+@Interned String s1 = "10";
+@Interned String s1_same = intern(new String("10"));
+// @Interned String s1_same = new String("10");
+
+if (s1 == s1_same) System.out.println("same string");
+</pre>
+    <!--@formatter:on-->
+
+
+  </div>
+</div>
+

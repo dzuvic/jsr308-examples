@@ -1,0 +1,11 @@
+{
+  "name": "better-java-with-jsr308",
+  "devDependencies": {
+    "angular": "1.4.3",
+    "angular-sanitize": "1.4.3",
+    "angular-bootstrap": "0.14.1",
+    "twbs-bootstrap-sass": "3.3.5",
+    "w11k-slides": "0.13.0",
+    "font-awesome": "~4.5.0"
+  }
+}

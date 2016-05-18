@@ -1,0 +1,30 @@
+<div w11k-slide-master="demo">
+  <span w11k-slide-part-source="header">
+    Nullness Checker - @EnsuresNonNullIf
+  </span>
+
+  <div w11k-slide-part-source="content">
+    <ul class="simple">
+      <li>@NonNull / @Nullable abhängig vom Aufruf</li>
+    </ul>
+    <!--@formatter:off-->
+<pre w11k-pretty-print lang="java">
+public class QueueDelegate {
+  private final @NonNull Queue&lt;@NonNull Integer&gt; queue = new LinkedList&lt;&gt;();
+
+  @EnsuresNonNullIf(expression="pop()", result=false)
+  public boolean isEmpty() {return  this.queue.isEmpty();}
+
+  public Integer pop() {
+    return this.queue.isEmpty() ? null :  this.queue.poll();
+  }
+}
+/* ... */
+QueueDelegate dlg = new QueueDelegate();
+@NonNull Integer doesCompile = dlg.isEmpty() ? 0 : dlg.pop();
+//@NonNull Integer doesNotCompile = dlg.pop();</pre>
+  </div>
+    <!--@formatter:on-->
+</div>
+
+

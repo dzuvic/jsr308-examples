@@ -1,0 +1,53 @@
+
+// new plugin DSL, might change
+plugins {
+    id "com.moowork.node" version "0.12"
+//    id "java"
+}
+
+// Settings for the node plugin, which version of node should be downloaded
+node {
+    version = '5.10.1'
+    download = true
+
+
+    // uncomment the following if nodejs is available via Repository
+    //distBaseUrl = 'file:///home/zuvic/local/repo/nodejs.org/dist'
+}
+
+def srcDir = new File(projectDir, "src")
+def targetDirFabs = new File(project.buildDir, "fabs/compiled")
+
+
+jar {
+  into('META-INF/resources') {
+    from targetDirFabs
+  }
+}
+
+
+// Tell Gradle, that grunt tasks have a different source map than
+//grunt_compile.outputs.dir targetDirFabs
+//grunt_build.outputs.dir targetDirFabs
+
+// gradle -> grunt mapping
+//clean  .dependsOn grunt_clean
+//classes.dependsOn grunt_build
+//test   .dependsOn grunt_test
+
+
+// makes sure on each build that grunt is installed
+//grunt_build.dependsOn 'installGrunt'
+//grunt_test .dependsOn 'installGrunt'
+
+// processes your package.json before running grunt build
+//grunt_build.dependsOn 'npmInstall'
+//grunt_test .dependsOn 'npmInstall'
+
+
+//// fabs  livereloading
+//task dev() {
+//    print "done"
+//}
+//
+//dev.dependsOn 'grunt_dev'

@@ -1,0 +1,24 @@
+<div w11k-slide-master="demo">
+  <span w11k-slide-part-source="header">
+    Der Regular Expression Checker
+  </span>
+
+  <div w11k-slide-part-source="content">
+
+    <!--@formatter:off-->
+<pre w11k-pretty-print lang="java">
+public final static String parenOpen ="(";
+
+public void doSometing() {
+  String thePattern = "[a-z]+";
+
+// @RegEx is inferred, so the following would not compile
+//          String thePattern = "invalidPattern" + parenOpen;
+  Pattern compiledPattern = Pattern.compile( thePattern );
+}
+</pre>
+    <!--@formatter:on-->
+
+
+  </div>
+</div>

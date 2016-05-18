@@ -1,0 +1,157 @@
+
+$entwicklertag_1: #2D5352;
+$entwicklertag_2: #71ac8a;
+
+$tcc_orange: $entwicklertag_2;
+$tcc-gray: $entwicklertag_1;
+$tcc-gray-light: lighten($tcc-gray, 20%);
+$tcc-gray-lighter: lighten($tcc-gray, 40%);
+$tcc-gray-lightest: lighten($tcc-gray, 78%);
+$tcc-quote-highlight: $entwicklertag_2;
+
+$tcc-gradient-orange-start: $entwicklertag_1;
+$tcc-gradient-orange-end: lighten($tcc-gradient-orange-start, 8%);
+
+$tcc-slide-title-background: linear-gradient(to right, $entwicklertag_2, lighten($entwicklertag_2, 8%));
+$tcc-slide-title-center-background: linear-gradient(to right, $entwicklertag_1, lighten($entwicklertag_1, 8%));
+
+$tcc-regular-header-background: linear-gradient(to right, $entwicklertag_1, lighten($entwicklertag_1, 8%));
+$tcc-regular-footer-background: linear-gradient(to left, $entwicklertag_1, lighten($entwicklertag_1, 8%));
+
+$tcc-slide-end-background: $tcc-slide-title-background;
+@import "boxed-variables";
+
+
+
+// ****************************************************************************************************
+// general
+// ****************************************************************************************************
+
+$font-size-base: 33px;
+$table-bg-accent: $tcc-code-bg-1;
+
+// Core variables and mixins
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap//variables";
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// Reset
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+//@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/print";
+
+// Core CSS
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/code";
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/tables";
+
+// Utility classes
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+
+@import "twbs-bootstrap-sass/assets/stylesheets/bootstrap/modals";
+
+$fa-font-path:        "assets/font-awesome/fonts";
+@import "font-awesome/scss/font-awesome.scss";
+
+// ****************************************************************************************************
+// w11k-slides config
+// ****************************************************************************************************
+
+$theCodeCampus_orange: $tcc_orange;
+$w11k-cornerRibbon-distance: 5em;
+$w11k-cornerRibbon-background-color: linear-gradient(to left, $tcc-gray, lighten($tcc-gray, 7%));
+$w11k-cornerRibbon-border-color: $tcc-gradient-orange-end;
+
+$w11k-prettyPrint-line-color: $tcc-code-bg-1;
+$w11k-prettyPrint-line-color-alternate: $tcc-code-bg-2;
+$w11k-prettyPrint-line-color-highlight: $tcc-code-bg-3;
+
+@import "w11k-slides/dist/variables";
+@import "w11k-slides/dist/slides/mixins";
+@import "w11k-slides/dist/corner-ribbon/corner-ribbon";
+
+@import "boxed-print";
+@import "boxed";
+@import "overlay";
+
+// ****************************************************************************************************
+// slides content
+// ****************************************************************************************************
+
+.tcc-2016 {
+
+  .slides > .slide-container > div > .slide {
+
+    a {
+      color: black;
+      text-decoration: none;
+
+      &[href^="#"] {
+        color: black;
+      }
+
+      &[href^="http"], &[href^="mailto"] {
+        color: black;
+        text-decoration: underline;
+      }
+
+    }
+
+    &.master-regular {
+      > .content {
+        font-size: 1.2em;
+        blockquote {
+          font-size: 1.0em;
+        }
+      }
+    }
+
+    &.title {
+      justify-content: space-around;
+
+      .center {
+        margin-top: -5em;
+        margin-bottom: -5em;
+      }
+
+      .bottom {
+        .content {
+          color: white;
+        }
+      }
+    }
+
+    &.master-regular, &.master-section-title {
+      > .header {
+        .logo {
+          width: 5em;
+          margin: 0.3em;
+          margin-right: 60px;
+          background: url('assets/images/entwicklertag-karlsruhe-logo-mini-white.svg') right center no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+
+    &.overview {
+      .content > div {
+        @include dyn-multi-column(1, 1, 2, 2, 0);
+
+        @media print {
+          -moz-column-count: 2;
+          -webkit-column-count: 2;
+          column-count: 2;
+        }
+      }
+    }
+  }
+}
+
+
+.w11k-corner-ribbon > .content, .slides .slide .corner-ribbon > .content {
+  background: black;
+}

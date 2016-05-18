@@ -1,0 +1,44 @@
+<div w11k-slide-master="expert">
+  <span w11k-slide-part-source="header">
+    Subytpe Checker
+  </span>
+
+  <div w11k-slide-part-source="content">
+    <ul class="simple">
+      <li>Eigene Typ-Hierarchien definieren:
+        <ul class="simple">
+          <li>
+            <!--@formatter:off-->
+              <pre w11k-pretty-print lang="java">
+@SubtypeOf(PossiblyUnencrypted.class)
+@Target({ElementType.TYPE_USE, ElementType.TYPE_PARAMETER})
+public @interface Encrypted {}</pre>
+            <!--@formatter:on-->
+          </li>
+          <li>
+            <!--@formatter:off-->
+    <pre w11k-pretty-print lang="java">
+@SubtypeOf({})
+@DefaultQualifierInHierarchy
+@Target({ElementType.TYPE_USE, ElementType.TYPE_PARAMETER})
+public @interface PossiblyUnencrypted {}</pre>
+            <!--@formatter:on-->
+
+          </li>
+        </ul>
+      </li>
+      <li>Typ-Hierarchie als Parameter:<br>
+        <code>-Aquals=Encrypted,PossiblyUnencrypted,PolyEncrypted</code>
+
+      </li>
+      <li>
+        <!--@formatter:off-->
+          <pre w11k-pretty-print lang="java">
+// does not compile
+@Encrypted String enrypted="look it's unencrypted";</pre>
+      </li>
+      <!--@formatter:on-->
+    </ul>
+  </div>
+</div>
+

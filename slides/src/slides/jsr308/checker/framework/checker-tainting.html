@@ -1,0 +1,33 @@
+<div w11k-slide-master="expert">
+  <span w11k-slide-part-source="header">
+    Tainting Checker
+  </span>
+
+  <div w11k-slide-part-source="content">
+    <ul class="simple">
+      <li>Tainting: Typ-Übergang <code>@Tainted</code> &rightarrow; <code>@Untainted</code>
+        <ul class="simple">
+          <li>SQL-Injection, Passwort Hashing, Verschlüsselung Kreditkarten</li>
+        </ul>
+      </li>
+    </ul>
+    <!--@formatter:off-->
+<pre w11k-pretty-print lang="java">
+@Tainted @Nullable String pass = console.readLine("Password:");
+@Untainted String unTaintedPassword = hashPassword(pass);
+boolean passwordCorrect = checkPassword(unTaintedPassword);
+//...
+@NonNull boolean checkPassword(@Untainted @Nullable String pass) { .. }
+//...
+@Untainted
+@NonNull
+public String hashPassword(@Nullable String pass) { ...
+  @SuppressWarnings({"tainting"})
+  @Untainted String result = Base64.getEncoder().encodeToString(res);
+  return result;
+}</pre>
+    <!--@formatter:on-->
+
+
+  </div>
+</div>

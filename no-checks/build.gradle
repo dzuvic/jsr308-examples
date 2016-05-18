@@ -1,0 +1,4 @@
+group 'de.w11k.jsr308'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'

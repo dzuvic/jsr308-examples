@@ -1,0 +1,11 @@
+de.w11k.jsr308.checkers.simple.NothingChecker
+org.checkerframework.checker.regex.RegexChecker
+org.checkerframework.checker.nullness.NullnessChecker
+org.checkerframework.common.subtyping.SubtypingChecker
+org.checkerframework.checker.formatter.FormatterChecker
+org.checkerframework.checker.interning.InterningChecker
+org.checkerframework.checker.units.UnitsChecker
+org.checkerframework.checker.tainting.TaintingChecker
+#does not work well.
+#org.checkerframework.checker.fenum.FenumChecker
+

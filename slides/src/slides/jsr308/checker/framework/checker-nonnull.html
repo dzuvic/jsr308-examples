@@ -1,0 +1,29 @@
+<div w11k-slide-master="regular">
+  <span w11k-slide-part-source="header">
+    Nullness Checker
+  </span>
+
+  <div w11k-slide-part-source="content">
+    <ul class="simple">
+      <li>@NonNull @Nullable @MonotonicNonNull
+        <ul class="simple">
+          <li><i class="fa fa-ban"></i>De-Referenzierung von Nicht @NonNull Typen</li>
+          <li><i class="fa fa-ban"></i>Belegen von null bei @NonNull Typen</li>
+        </ul>
+      </li>
+      <li>Nullness Checker "aktiviert" noch:
+        <ul>
+          <li><em>Initilization Checker</em>
+            <p>Prüft Zugriff nicht initialisierten Code (NPE)</p>
+          </li>
+          <li><em>Rawness Initialization Checker</em>
+            <p>Alternative Prüfung der Initialisierung</p>
+          </li>
+          <li><em>Map Key Checker</em>
+            <p>Prüft: Map.containsKey(key)==true</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div w11k-slide-master="regular">
+  <span w11k-slide-part-source="header">
+    Invalide Type Annotations Syntax
+  </span>
+
+  <div w11k-slide-part-source="content">
+    <ul class="simple">
+      <li>Eigentlich überall an Typen außer:
+        <pre w11k-pretty-print="java">
+// Annotationen
+@Annotation4TypeUse @TypeUse Object o;
+
+//.class
+@TypeUse Integer.class
+
+// Import
+import @TypeUse java.util.List
+
+// static access (Clazz = scoping)
+@TypeUse Clazz.staticMember
+
+// super reference
+@TypeUse TASyntax.super.memberName</pre>
+      </li>
+    </ul>
+
+
+  </div>
+</div>

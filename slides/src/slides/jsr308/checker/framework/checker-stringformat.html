@@ -1,0 +1,26 @@
+<div w11k-slide-master="demo">
+  <span w11k-slide-part-source="header">
+    Der String Format Checker
+  </span>
+
+  <div w11k-slide-part-source="content">
+
+    <!--@formatter:off-->
+<pre w11k-pretty-print lang="java">
+String str = "str";
+@Nullable String strN = null;
+
+String format="%s";
+String twoformat="%s %f";
+
+String s1 = String.format("%s", str);
+String s_checkedBy = formatMe(twoformat, str, 1.0f);
+
+//        String s_errorNull = String.format("%s", strN);
+//        String s_errorWrongType = String.format("%d", "zero.one");
+</pre>
+    <!--@formatter:on-->
+
+
+  </div>
+</div>

@@ -1,0 +1,34 @@
+{
+  "name": "better-java-with-jsr308",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "Dragan Zuvic",
+    "email": "",
+    "web": "http://blog.thecodecampus.de/"
+  },
+  "homepage": "http://www.thecodecampus.de",
+  "description": "Slides and sample code for JSR308 talk at etka",
+
+  "scripts": {
+    "watch": "grunt dev",
+    "bower": "bower install"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dzuvic/slides-readable-code"
+  },
+
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "fabs": "0.12.6",
+    "lodash": "2.4.1"
+  },
+
+  "engines": {
+    "node": ">=0.10.21"
+  }
+
+}

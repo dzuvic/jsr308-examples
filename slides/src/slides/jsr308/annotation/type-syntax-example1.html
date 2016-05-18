@@ -1,0 +1,30 @@
+<div w11k-slide-master="demo">
+  <span w11k-slide-part-source="header">
+    Type Annotations Syntax Beispiele
+  </span>
+
+  <div w11k-slide-part-source="content">
+
+    <!--@formatter:off-->
+<pre w11k-pretty-print lang="java">
+public class TASyntax&lt;@TypeParam T extends @TypeUse Number&gt;
+   implements @TypeParam Virtual  {
+   Map&lt;@TypeUse String, @TypeUse List&lt;@TypeUse Document&gt;&gt; xmlDocument;
+   Collection&lt;@TypeParam ? super @TypeUse Document&gt; contractCollection;
+   String @TypeUse [] typedArray;
+   public void whereToPut () throws @TypeUse IOException {
+       @TypeParam Car c = new @TypeParam DirtyCar();
+       DirtyCar d = (@TypeUse DirtyCar & Virtual) c;
+       boolean b = d instanceof @TypeUse Car;
+   }
+   public static final TASyntax&lt;Integer&gt; newone() {
+       return new &lt;Integer&gt;@TypeUse TASyntax();
+   }
+   public &lt;@TypeParam X extends T&gt; void specialBound ( X x ) {} ;
+}
+</pre>
+    <!--@formatter:on-->
+
+
+  </div>
+</div>
