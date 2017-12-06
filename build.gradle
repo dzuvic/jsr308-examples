@@ -2,7 +2,7 @@ group 'de.w11k.jsr308'
 version '1.0-SNAPSHOT'
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.12'
+  gradleVersion = '4.3.1'
   distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
@@ -14,18 +14,9 @@ apply plugin: 'java'
 
 // Some Version numbers
 ext {
-    checkerFrameworkVersion = '2.0.1'
-    jdkVersion = 'jdk8'
-    libraries = [
-            checkerFrameworkAnnotatedJDKLib : dependencies.create("org.checkerframework:${jdkVersion}:${checkerFrameworkVersion}"),
-            checkerFrameworkLib:              dependencies.create("org.checkerframework:checker:${checkerFrameworkVersion}")
-
-    ]
-}
-
-allprojects {
-
-    task hello << { task -> println "I'm $task.project.name" }
+    checkerFrameworkVersion = '2.2.2'
+    targetJavaVersion = JavaVersion.current().isJava8() ? JavaVersion.VERSION_1_8 : JavaVersion.VERSION_1_9
+    jdkVersion = JavaVersion.current().isJava8() ? 'jdk8' : 'jdk9'
 }
 
 
@@ -39,17 +30,6 @@ subprojects {
 
     sourceCompatibility = 1.8
 
-    configurations {
-        checkerFrameworkAnnotatedJDK {
-            description = 'a copy of JDK classes with Checker Framework type qualifers inserted'
-            extendsFrom compileOnly
-
-        }
-        checkerFramework {
-            description = 'The Checker Framework: custom pluggable types for Java'
-            extendsFrom compileOnly
-        }
-    }
 }
 
 

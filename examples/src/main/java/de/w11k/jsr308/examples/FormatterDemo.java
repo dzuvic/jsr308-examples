@@ -1,6 +1,7 @@
 package de.w11k.jsr308.examples;
 
-import org.checkerframework.checker.formatter.qual.*;
+import org.checkerframework.checker.formatter.qual.Format;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import static org.checkerframework.checker.formatter.qual.ConversionCategory.FLOAT;
@@ -20,7 +21,11 @@ public class FormatterDemo {
         String s1 = String.format("%s", str);
         String s_checkedBy = formatMe(twoformat, str, 1.0f);
 
-//        String s_errorNull = String.format("%s", strN);
+
+        // this may be a bug in the checker frame work. String.format return a null in this case.
+        @NonNull String s_errorNull = String.format("%s", strN);
+
+        //the following will not compile
 //        String s_errorWrongType = String.format("%d", "one.zero");
 //        String s_errorNoArgs = String.format("%s %s", str);
 //
